@@ -7,6 +7,8 @@ const pcScore = document.getElementById("pc");
 let pcPoint = 0;
 let userSelect;
 let pcRandom;
+let topScore=document.querySelector(".container .top-score")
+let maxScore = 0;
 
 const resultDiv = document.querySelector(".result-msg");
 const containerEl = document.querySelector(".container");
@@ -82,15 +84,23 @@ function result() {
   
 console.log(youScore.innerText);
 if(youScore.innerText == '3'){ 
+    
+    maxScore=youScore.innerText +"-" +pcScore.innerText
+
+    topScore.innerText = maxScore
     console.log("your scor 3?");
     modalEl.classList.add("show");
     final.innerHTML = `💃 You Win🕺`
         document.querySelector(".modal").style.backgroundColor = "#5AB7AC"
         modalBtn.style.color = "#5AB7AC"
+        modal();
 }
-else if (pcScore.innerText == 3){    
+else if (pcScore.innerText == 9){    
     console.log("pc 3 ")
     modalEl.classList.add("show");
+    modal()
+
+
 
 }
 
@@ -118,3 +128,14 @@ const pcWin = function () {
   containerEl.style.boxShadow = "3px 3px 10px 1px #fb778b";
   resultDiv.style.backgroundColor = "#fb778b";
 };
+
+function modal(){
+ // modalEl.classList.add("show")
+}
+
+modalBtn.addEventListener("click", ()=>{
+
+  modalEl.style.display="none";
+    window.location.reload();
+
+  })
